@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>من قوی‌ترم!</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="main-menu">
+    <h1>Welcome to Man Ghavi Taram!</h1>
+    <button onclick="goToAvatar()">🎭 انتخاب آواتار</button>
+    <button onclick="goToGameSetup()">🎮 شروع بازی</button>
+    <button onclick="showCredits()">ℹ️ درباره ما</button>
+  </div>
+
+  <div id="avatar-screen" class="hidden">
+    <h2>🎭 انتخاب آواتار</h2>
+    <div class="avatar-section">
+      <h3>بازیکن ۱</h3>
+      <input type="text" placeholder="نام بازیکن ۱" id="player1Name"/>
+      <input type="file" accept="image/*" onchange="loadAvatar(event, 1)" />
+      <img id="avatar1" class="avatar-preview" />
+    </div>
+    <div class="avatar-section">
+      <h3>بازیکن ۲</h3>
+      <input type="text" placeholder="نام بازیکن ۲" id="player2Name"/>
+      <input type="file" accept="image/*" onchange="loadAvatar(event, 2)" />
+      <img id="avatar2" class="avatar-preview" />
+    </div>
+    <button onclick="backToMenu()">بازگشت</button>
+  </div>
+
+  <div id="game-setup" class="hidden">
+    <h2>🎯 انتخاب امتیاز نهایی</h2>
+    <button onclick="startGame(5)">۵ امتیاز</button>
+    <button onclick="startGame(10)">۱۰ امتیاز</button>
+    <button onclick="startGame(20)">۲۰ امتیاز</button>
+    <button onclick="backToMenu()">بازگشت</button>
+  </div>
+
+  <div id="game-screen" class="hidden">
+    <h2 id="turn-indicator">نوبت بازیکن ۱</h2>
+    <div class="card">
+      <textarea id="playerInput" placeholder="کلمبو..."></textarea>
+      <button onclick="submitAnswer()">ثبت</button>
+    </div>
+    <div id="show-cards" class="hidden">
+      <div class="response-card" id="p1Card"></div>
+      <div class="response-card" id="p2Card"></div>
+      <button onclick="voteWinner(1)">رأی به بازیکن ۱</button>
+      <button onclick="voteWinner(2)">رأی به بازیکن ۲</button>
+    </div>
+    <div id="scoreboard"></div>
+  </div>
+
+  <div id="credits-screen" class="hidden">
+    <h2>✨ درباره ما</h2>
+    <p>ساخته شده توسط بردیا بویه زاده و ChatGPT</p>
+    <button onclick="backToMenu()">بازگشت</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
